@@ -7,7 +7,7 @@ def rscan(addr):
 	"""Check address for duplicated r values."""
 	# TODO: add BCI API check address
 
-	print "ADDRESS-R-SCAN: "
+	print( "ADDRESS-R-SCAN: ")
 	
 	urladdr = 'https://blockchain.info/address/%s?format=json&offset=%s'
 
