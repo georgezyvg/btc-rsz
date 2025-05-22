@@ -47,8 +47,8 @@ def rscan(addr):
 		x = 0
 		while x < lenx-zi:
 			if inputs[xi][10:74] == inputs[x+zi][10:74]:
-				print "Resued R-Value: "
-				print inputs[x+zi][10:74]
+				print( "Resued R-Value: ")
+				print( inputs[x+zi][10:74])
 				bad.append((int(x), str(inputs[x+zi][10:74])))
 				alert += 1
 			x += 1
@@ -57,14 +57,14 @@ def rscan(addr):
 
 
 	if alert < 1:
-		print "Good pubKey. No problems."
+		print( "Good pubKey. No problems.")
 	else:
-		print "Address %s has %d reused R value%s!" % (addr, len(bad), "s"[len(bad)==1:])
+		print( "Address %s has %d reused R value%s!" % (addr, len(bad), "s"[len(bad)==1:]))
 		return bad
 		
 if __name__ == '__main__':
 	from sys import argv
-	print """SCAN ADDR"""
+	print( """SCAN ADDR""")
 	if len(argv) == 1:
 		addr = raw_input("type address:  ")
 	elif len(argv) == 2 and isinstance(argv[1], basestring):
