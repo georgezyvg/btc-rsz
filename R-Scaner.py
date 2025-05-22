@@ -14,7 +14,7 @@ def rscan(addr):
 
 	addrdata = json.load(urllib2.urlopen(urladdr % (addr, '0')))
 	ntx = addrdata['n_tx']
-	print "Data for pubkey: " + str(addr) + " has " + str(addrdata['n_tx']).center(6) + "Tx%s" % 's'[ntx==1:]
+	print( "Data for pubkey: " )+ str(addr) + " has " + str(addrdata['n_tx']).center(6) + "Tx%s" % 's'[ntx==1:]
 	#print "number of txs: " + str(addrdata['n_tx'])
 
 
