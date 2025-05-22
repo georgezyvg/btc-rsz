@@ -66,7 +66,7 @@ if __name__ == '__main__':
 	from sys import argv
 	print( """SCAN ADDR""")
 	if len(argv) == 1:
-		addr = raw_input("type address:  ")
+		addr = raw_input("type address:1C48FkjxWxQhQyd5yoJDQ95BjREvj9YREq  ")
 	elif len(argv) == 2 and isinstance(argv[1], basestring):
 		addr = str(argv[1])
 	rscan(addr)
