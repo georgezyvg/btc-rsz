@@ -1,5 +1,5 @@
 import json
-import urllib2
+import urllib3
 import time
 import sys
 
@@ -12,7 +12,7 @@ def rscan(addr):
 	urladdr = 'https://blockchain.info/address/%s?format=json&offset=%s'
 
 
-	addrdata = json.load(urllib2.urlopen(urladdr % (addr, '0')))
+	addrdata = json.load(urllib3.urlopen(urladdr % (addr, '0')))
 	ntx = addrdata['n_tx']
 	print( "Data for pubkey: " )+ str(addr) + " has " + str(addrdata['n_tx']).center(6) + "Tx%s" % 's'[ntx==1:]
 	#print "number of txs: " + str(addrdata['n_tx'])
@@ -21,7 +21,7 @@ def rscan(addr):
 	txs = []
 	for i in range(0, ntx//50 + 1):
 		sys.stderr.write("Fetching Txs from offset\t%s\n" % str(i*50))
-		jdata = json.load(urllib2.urlopen(urladdr % (addr, str(i*50))))
+		jdata = json.load(urllib3.urlopen(urladdr % (addr, str(i*50))))
 		txs.extend(jdata['txs'])	
 
 	assert len(txs) == ntx
